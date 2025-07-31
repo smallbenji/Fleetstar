@@ -9,6 +9,8 @@
 *.user
 *.userosscache
 *.sln.docstates
+App_Data/
+Fleetstar/wwwroot/js/dist/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
