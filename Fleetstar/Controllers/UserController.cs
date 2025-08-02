@@ -52,7 +52,7 @@ namespace Fleetstar.Controllers
 
         [HttpPost]
         [Route("register")]
-        public async Task<IActionResult> Register([FromForm]RegisterDto model)
+        public async Task<IActionResult> Register([FromBody]RegisterDto model)
         {
             var user = new ApplicationUser
             {
@@ -72,7 +72,7 @@ namespace Fleetstar.Controllers
         [HttpGet]
         [Route("getall")]
         [Authorize]
-        public async Task<IActionResult> GetAllUsers()
+        public IActionResult GetAllUsers()
         {
             var users = userRepository.GetAll();
 
@@ -81,7 +81,7 @@ namespace Fleetstar.Controllers
 
         [HttpGet]
         [Route("currentuser")]
-        public async Task<IActionResult> CurrentUser()
+        public IActionResult CurrentUser()
         {
             var user = userManager.GetUserAsync(User);
 
