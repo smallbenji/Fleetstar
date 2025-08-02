@@ -1,0 +1,9 @@
+# Add user
+POST http://localhost:5181/Auth/register
+Content-Type: application/json
+
+{
+    "UserName": "",
+    "FullName": "",
+    "Password": ""
+}
