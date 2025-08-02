@@ -17,31 +17,36 @@
     </div>
 </template>
 
-<script lang="ts" setup>
+<script lang="ts">
+    import { Component, Vue } from "vue-property-decorator";
     import Axios from "axios";
 
-    var username = "";
-    var password = "";
+    @Component({
+        name: "Login"
+    })
+    export default class Login extends Vue {
+        private username: string = "";
+        private password: string = "";
 
-    const urlParams = new URLSearchParams(window.location.search);
+        async login() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const res = await Axios({
+                method: "POST",
+                url: "/Auth/login",
+                data: {
+                    username: this.username,
+                    password: this.password
+                }
+            });
 
-    async function login() {
-        const res = await Axios({
-            method: "POST",
-            url: "/Auth/login",
-            data: {
-                username: username,
-                password: password
-            }
-        });
-
-        if (res.status = 200) {
-            if (urlParams.get('ReturnUrl'))
-            {
-                window.location.search = urlParams.get("RetunUrl") ?? ""
-            }
-            else {
-                window.location.search = "/"
+            if (res.status = 200) {
+                if (urlParams.get('ReturnUrl'))
+                {
+                    window.location.search = urlParams.get("RetunUrl") ?? ""
+                }
+                else {
+                    window.location.search = "/"
+                }
             }
         }
     }
