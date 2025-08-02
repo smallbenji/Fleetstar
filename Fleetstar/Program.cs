@@ -16,6 +16,7 @@ builder.Services.ConfigureApplicationCookie(options =>
 });
 
 builder.Services.AddSingleton<UserRepository>();
+builder.Services.AddTransient<DBHelper>();
 
 builder.Services.AddControllersWithViews();
 
