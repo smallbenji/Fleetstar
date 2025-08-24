@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    padding: 25px;
+}
+
+.header nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.event-list {
+    display: flex;
+    gap: 15px;
+}
+
+.event-list .event {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    min-width: 300px;
+    max-width: 300px;
+    max-height: fit-content;
+    border-radius: 5px;
+    box-shadow: 2px 1px rgba(0, 0, 0, 0.05);
+}
+
+.event-list .event .event-information h3 {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.event .event-information {
+    margin: 10px;
+
+}
+
+.event .event-information .meta-info {
+    font-size: 13px;
+    font-weight: bold;
+}
+
+
+.event-buttons {
+    display: flex;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    justify-content: end;
+}

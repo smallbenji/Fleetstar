@@ -16,17 +16,20 @@
         </div>
         <div class="content-frame">
             <UsersManagement v-if="selected === 'users'"></UsersManagement>
+            <EventManagement v-if="selected === 'event'"></EventManagement>
         </div>
     </div>
 </template>
 <script lang="ts">
+import EventManagement from "@/components/eventManagemnt.vue";
 import UsersManagement from "@/components/usersManagement.vue";
 import { Component, Vue } from "vue-property-decorator";
 
 @Component({
     name: "AdminPanel",
     components: {
-        UsersManagement
+        UsersManagement,
+        EventManagement
     }
 })
 export default class AdminPanel extends Vue {
@@ -40,6 +43,10 @@ export default class AdminPanel extends Vue {
         {
             Title: "Users",
             id: "users"
+        },
+        {
+            Title: "Events",
+            id: "event"
         }
     ]
 }

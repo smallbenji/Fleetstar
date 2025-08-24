@@ -1,1 +1,27 @@
-﻿
+﻿@using Fleetstar.Components
+@model IEnumerable<Fleetstar.Components.Event>
+@{
+    var translationUtil = new TranslationUtil();
+}
+@translationUtil.GetText("dk", "homepage", "title")
+<div class="event-list">
+@foreach (var Event in Model) {
+    <div class="event">
+        <img class="event-img" src="@Event.Image" />
+        <div class="event-information">
+            <h3>@Event.Name</h3>
+            <div class="meta-info">
+                <span>@Event.FromDate.ToString("dd/MM/yyyy")</span>
+                <span> - </span>
+                <span>@Event.ToDate.ToString("dd/MM/yyyy")</span>
+                <span> | </span>
+                <span>@Event.ForWho</span>
+            </div>
+            <p>@Event.Description</p>
+        </div>
+        <div class="event-buttons">
+            <a class="button">Læs mere</a>
+        </div>
+    </div>
+}
+</div>

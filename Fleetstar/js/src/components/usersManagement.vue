@@ -40,8 +40,6 @@ export default class UsersManagement extends Vue {
 
     async created() {
         await UsersModule.GET_USERS();
-
-        console.log(this.users);
     }
 }
 </script>

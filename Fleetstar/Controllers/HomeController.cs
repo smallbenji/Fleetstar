@@ -1,12 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Fleetstar.Components;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Fleetstar.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        readonly EventRepository eventRepository;
+
+        public HomeController(EventRepository eventRepository) {
+            this.eventRepository = eventRepository;
+        }
+
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var events = await eventRepository.GetEvents();
+            return View(events);
         }
     }
 }

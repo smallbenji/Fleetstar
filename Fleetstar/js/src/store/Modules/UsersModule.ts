@@ -24,7 +24,6 @@ class UsersClass extends VuexModule {
 
     @Mutation
     private SET_USERS(payload: User[]) {
-        console.log(payload);
         this.Users = payload;
     }
 }
